@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  surname   String?
+  email     String    @unique
+  password  String
+  active    Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@map("users")
+}
+
+model Section {
+  id                Int       @id @default(autoincrement())
+  type              String
+  title             String?
+  slug              String?
+  externalUrl       String?
+  metaData          Json? //(tag: 'instagram', value: 'https://instagram.com/xxxxx')
+  bannerUrl         String?
+  buttonDescription String?
+  imageJson         Json? //("file", "description")
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  deletedAt         DateTime?
+
+  @@map("sections")
+}
+
+model Product {
+  id         Int       @id @default(autoincrement())
+  name       String
+  percentage String?
+  active     Boolean?  @default(false)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  @@map("products")
+}
+
+model Color {
+  id        Int       @id @default(autoincrement())
+  name      String
+  price     Float
+  active    Boolean?  @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@map("colors")
+}
