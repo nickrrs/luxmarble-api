@@ -1,12 +1,6 @@
-import {Router} from "express";
-
-const router: Router = Router();
+import {router} from "../api/modules/index";
 
 //Exemplo
-router.get('/teste', (request, response) => {
-    return response.json({
-        teste: "Ola mundo!"
-    });
-})
+router.use('/api/v1/', router);
 
 export {router}
