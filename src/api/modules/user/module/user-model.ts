@@ -6,7 +6,7 @@ export class UserModule {
     public readonly userRouter: UserRouter
     constructor(client: PrismaClient){
         this.userRouter = new UserRouter(client);
-        this.userRouter.store();
+        this.userRouter.store().update().delete().getAll();
     }
 
 }
