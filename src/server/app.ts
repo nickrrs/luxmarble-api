@@ -1,6 +1,6 @@
 import express from "express";
 import {router} from "./router";
-import UserRouter from "../api/modules/user/routes/user-routes"
+
 export class App {
     public server: express.Application;
 

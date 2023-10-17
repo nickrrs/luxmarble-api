@@ -10,13 +10,13 @@ export default class SectionService {
     }
     
     async getAll(){
-      const users = await this.sectionRepository.all();
-      return { users }
+      const sections = await this.sectionRepository.all();
+      return { sections }
     }
 
-    async getUser(id: number){
-      const user = await this.sectionRepository.get(id);
-      return { user }
+    async getsection(id: number){
+      const section = await this.sectionRepository.get(id);
+      return { section }
     }
 
     async saveSection(payload: SectionSavePayload) {
