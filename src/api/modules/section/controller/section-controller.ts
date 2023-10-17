@@ -24,10 +24,10 @@ export default class SectionController {
 
   public async saveSection(request: Request, response: Response) {
     try {
-      const user = await this.service.saveSection(request.body)
+      const section = await this.service.saveSection(request.body)
       
       return response.json({
-        user
+        section
       }).status(200);
 
     } catch (error: any) {

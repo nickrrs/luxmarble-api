@@ -18,21 +18,21 @@ export default class SectionRouter {
   }
 
   public store() {
-    this.router.post('/store', (request: Request, response: Response) => {
+    this.router.post('/', (request: Request, response: Response) => {
       this.controller.saveSection(request, response)
     })
     return this
   }
 
   public update(){
-    this.router.patch('/update/:id', async (request: Request, response: Response) => {
+    this.router.patch('/:id', async (request: Request, response: Response) => {
       this.controller.updateSection(request, response)
     })
     return this
   }
 
   public delete(){
-    this.router.delete('/delete/:id', async (request: Request, response: Response) => {
+    this.router.delete('/:id', async (request: Request, response: Response) => {
       this.controller.deleteSection(request, response)
     })
     return this
